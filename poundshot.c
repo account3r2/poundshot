@@ -32,7 +32,7 @@ int score = 0;
 
 int bx, by; /* Bullet's XY */
 int direction; /* of the bullet */
-bool bullet; /* Bullet existance variable */
+bool bullet; /* Bullet existence variable */
 
 int limit = 15; /* Used to limit the monster spawning */
 int left = 15; /* Keep track of how many left before the next cycle */
@@ -65,7 +65,7 @@ void l_bullet(void);
 void l_enemy(void);
 void d_draw(void);
 void l_hit(void);
-void d_explosion(void); /* Seperating the explosion from l_hit() */
+void d_explosion(void); /* Separating the explosion from l_hit() */
 
 int main(void)
 {
