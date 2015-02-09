@@ -409,17 +409,17 @@ void l_hit (void)
 
 void d_explosion(void)
 {
-	sleep(1);
+	usleep(250000);
 	// Drawing of explosion
 	mvaddch(py, px, '*');
 	refresh();
-	sleep(1);
+	usleep(250000);
 	mvaddch(py + 1, px, '*');
 	mvaddch(py - 1, px, '*');
 	mvaddch(py, px + 1, '*');
 	mvaddch(py, px - 1, '*');
 	refresh();
-	sleep(1);
+	usleep(250000);
 	mvaddch(py + 2, px, '*');
 	mvaddch(py - 2, px, '*');
 	mvaddch(py, px + 2, '*');
@@ -429,18 +429,18 @@ void d_explosion(void)
 	mvaddch(py - 1, px + 1, '*');
 	mvaddch(py - 1, px - 1, '*');
 	refresh();
-	sleep(1);
+	usleep(250000);
 
 	// Un-drawing
 	mvaddch(py, px, ' ');
 	refresh();
-	sleep(1);
+	usleep(250000);
 	mvaddch(py + 1, px, ' ');
 	mvaddch(py - 1, px, ' ');
 	mvaddch(py, px + 1, ' ');
 	mvaddch(py, px - 1, ' ');
 	refresh();
-	sleep(1);
+	usleep(250000);
 	mvaddch(py + 2, px, ' ');
 	mvaddch(py - 2, px, ' ');
 	mvaddch(py, px + 2, ' ');
