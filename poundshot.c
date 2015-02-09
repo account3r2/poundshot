@@ -172,6 +172,7 @@ void l_bullet(void)
 				direction = 1; /* Right */
 				break;
 		}
+
 	} else if (bullet) {
 		switch (direction) {
 			case 0 : /* Up */
@@ -192,7 +193,7 @@ void l_bullet(void)
 				break;
 		}
 	}
-	
+
 	return;
 }
 
@@ -227,12 +228,10 @@ void l_enemy(void)
 			if (mon_list[curmon].x == px
 					&& mon_list[curmon].y == py)
 				continue;
-			
 
 			/* Test 2 - Is our location another monster's? */
-			
 			int i;
-			for (i = 0; i < maxmon; i++) {
+			for (i = 0; i <= maxmon; i++) {
 				if(i == curmon) continue;
 				
 				if (mon_list[curmon].y == mon_list[i].y
@@ -249,7 +248,6 @@ void l_enemy(void)
 
 			left = limit;
 		}
-		
 	} else {left -= 1;}
 
 	if (monnum > 0) {
@@ -278,7 +276,6 @@ void l_enemy(void)
 						tempy = mon_list[i].y;
 						break;
 				}
-				
 
 				if ((tempx == bx) && (tempy == by)) {
 					score += 50;
@@ -299,9 +296,9 @@ void l_enemy(void)
 
 				int udlr;
 				if (mon_list[i].status == 0) continue;
-					
+
 				if (mon_list[i].status == 1) {
-				
+
 					mon_list[i].status = 2;
 
 					/* Don't even bother */
@@ -311,33 +308,30 @@ void l_enemy(void)
 							mon_list[i].y - py)
 						udlr = 1;
 					else udlr = -1;
-				
+
 					mon_list[i].y += udlr;		
-			
+
 				} else if (mon_list[i].status == 2) {
-				
+
 					mon_list[i].status = 1;
 					if (px == mon_list[i].x) continue;	
-				
+
 					if (px - mon_list[i].x >
 							mon_list[i].x - px)
 						udlr = 1;
 					else udlr = -1;
-				
+
 					mon_list[i].x += udlr;
 				}
-			
 			}
-
 		}
 	}	
-	
+
 	if ((score % 1000) == 0 && score == newscore && score != 0) {
 		limit--;
 		newscore += 1000;
 	}
 
-	
 }
 
 void d_draw(void)
@@ -357,17 +351,16 @@ void d_draw(void)
 		mvaddch(by, bx, '+');
 
 	/* Top bar */
-	
 	for (a = 0; a < row; a++)
 		mvaddch(a, 0, ' ');
 
 	mvprintw(0,0, "%s", livestxt);
-	
+
 	int tmplives = lives;
 	int xpos = 8;
 	for (; tmplives != 0; tmplives--, xpos++)
 		mvaddch(0, xpos, '#');
-	
+
 	mvprintw(0,( strlen(livestxt) + 5),"%s%d", scoretxt, score);
 	mvprintw(0, ((col - strlen(title)) - strlen(version)) - 1,"%s %s",
 		title, version);
@@ -375,7 +368,6 @@ void d_draw(void)
 	chgat(-1, A_REVERSE, 0, NULL);
 
 	/* Monsters */
-	
 	for (a = 0; a < maxmon; a++) {
 		if (mon_list[a].status == 0) continue;
 		mvaddch(mon_list[a].y, mon_list[a].x, '@');
