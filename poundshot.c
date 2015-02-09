@@ -239,7 +239,14 @@ void l_enemy(void)
 					badlocation = 1;
 					break;
 				}
-			}			
+			}
+
+			/* Test 3 - Is our location where the bullet is? */	
+			if (mon_list[curmon].y == by
+			&& mon_list[curmon].x == bx) {
+				badlocation = 1;
+				break;
+			}
 
 			if (badlocation) continue;
 
