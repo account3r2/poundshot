@@ -52,7 +52,7 @@ struct Monster_t *mon_list;
 static char livestxt[] = "Lives - ";
 static char scoretxt[] = "Score - ";
 static char title[] = "Poundshot";
-static char version[] = "1.0.0";
+static char version[] = "1.0.1";
 
 int key;
 
