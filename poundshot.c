@@ -78,6 +78,7 @@ int main(void)
 		l_enemy();
 		d_draw();
 		refresh();
+		usleep(1000);
 	}
 
 	free(mon_list);
