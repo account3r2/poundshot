@@ -78,7 +78,7 @@ int main(void)
 		l_enemy();
 		d_draw();
 		refresh();
-		usleep(1000);
+		nanosleep((struct timespec[]){{0, 5000000}}, NULL);
 	}
 
 	free(mon_list);
@@ -412,17 +412,17 @@ void l_hit (void)
 
 void d_explosion(void)
 {
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 	// Drawing of explosion
 	mvaddch(py, px, '*');
 	refresh();
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 	mvaddch(py + 1, px, '*');
 	mvaddch(py - 1, px, '*');
 	mvaddch(py, px + 1, '*');
 	mvaddch(py, px - 1, '*');
 	refresh();
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 	mvaddch(py + 2, px, '*');
 	mvaddch(py - 2, px, '*');
 	mvaddch(py, px + 2, '*');
@@ -432,18 +432,18 @@ void d_explosion(void)
 	mvaddch(py - 1, px + 1, '*');
 	mvaddch(py - 1, px - 1, '*');
 	refresh();
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 
 	// Un-drawing
 	mvaddch(py, px, ' ');
 	refresh();
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 	mvaddch(py + 1, px, ' ');
 	mvaddch(py - 1, px, ' ');
 	mvaddch(py, px + 1, ' ');
 	mvaddch(py, px - 1, ' ');
 	refresh();
-	usleep(250000);
+	nanosleep((struct timespec[]){{0, 250000000}}, NULL);
 	mvaddch(py + 2, px, ' ');
 	mvaddch(py - 2, px, ' ');
 	mvaddch(py, px + 2, ' ');
