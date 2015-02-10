@@ -400,6 +400,8 @@ void l_hit (void)
 	py = row / 2;
 	px = col / 2;
 
+	bullet = 0;
+
 	if (lives == 0) {
 		mvprintw(row / 2, (col / 2) - 4, "GAME OVER");
 		refresh();
